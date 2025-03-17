@@ -41,7 +41,7 @@ function App() {
         {todos.map(({ value, completed }, index) => (
           <li
             key={index}
-            className="list-group-item d-flex justify-content-between align-items-center"
+            className={`list-group-item d-flex justify-content-between align-items-center ${completed ? "bg-warning text-white" : ""}`}
           >
             <span
               onClick={() => handleItemDone(index)}
