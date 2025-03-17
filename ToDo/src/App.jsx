@@ -8,7 +8,7 @@ function App() {
 
   const handleAddToDo = () => {
     const value = inputRef.current.value.trim();
-    if (!value) return;
+    // if (!value) return;
     const newItem = { completed: false, value };
     setTodos([...todos, newItem]);
     inputRef.current.value = "";
@@ -21,9 +21,13 @@ function App() {
     setTodos(newTodos);
   };
 
-  const handleDeleteItem = (index) => {
-    setTodos(todos.filter((_, i) => i !== index));
+  const handleDeleteItem = (indexToDelete) => {
+    const updatedTodos = todos.filter((todo, currentIndex) => {
+      return currentIndex !== indexToDelete;
+    });
+    setTodos(updatedTodos);
   };
+  
 
   return (
     <div className="container py-5">
